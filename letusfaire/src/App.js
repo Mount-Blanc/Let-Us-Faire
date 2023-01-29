@@ -1,5 +1,4 @@
 import './App.css';
-import {auth} from './FirebaseConfig'
 
 import {
   RouterProvider,
