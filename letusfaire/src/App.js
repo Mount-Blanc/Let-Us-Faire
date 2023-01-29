@@ -2,22 +2,30 @@ import './App.css';
 import {auth} from './FirebaseConfig'
 
 import {
-  createBrowserRouter,
   RouterProvider,
+  createRoutesFromElements,
+  Route,
+  createBrowserRouter
 } from "react-router-dom";
 
 
 import SignIn from './SignIn';
 import Todo from './Todo';
 
+
+
+const routeDefinitions=createRoutesFromElements(
+  <Route>
+    <Route path="/" element={<SignIn/>}/>
+  </Route>
+)
+
+const router= createBrowserRouter(routeDefinitions)
 function App() {
 
 
   return (
-    <div className="App">
-    <SignIn/>
-   <Todo/>
-    </div>
+    <RouterProvider router={router}/>
   );
 }
 
