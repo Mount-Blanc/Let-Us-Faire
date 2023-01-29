@@ -1,7 +1,11 @@
 import './App.css';
-import {db} from './FirebaseConfig'
+import {db,auth} from './FirebaseConfig'
 import {collection, addDoc,getDocs,updateDoc,doc,deleteDoc } from "firebase/firestore"; 
 import {useState, useEffect} from 'react'
+
+
+import SignIn from './SignIn';
+
 function App() {
 
 const [todo, settodo] = useState([])
@@ -47,7 +51,7 @@ const deleteTodo= async(id) => {
 
   return (
     <div className="App">
-    
+    <SignIn/>
       <input placeholder='Enter Todo' type="text" onChange={inputHandler}/>
     <button onClick={addTodo}>Add</button>
 
