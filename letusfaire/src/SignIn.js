@@ -1,7 +1,12 @@
 function SignIn () {
+
+const signinHandler = () => {
+
+}
+
     return (
         <div>
-            <button>Guest Sign in</button>
+            <button onClick={signinHandler}>Guest Sign in</button>
         </div>
     )
 }
