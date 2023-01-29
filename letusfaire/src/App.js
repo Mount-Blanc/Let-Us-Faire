@@ -5,7 +5,7 @@ import {useState, useEffect} from 'react'
 function App() {
 
 const [todo, settodo] = useState([])
-const [addTodo, setaddTodo] = useState('')
+const [newTodo, setnewTodo] = useState('')
 
     const docRef =collection(db, "todos");
 
@@ -21,20 +21,24 @@ useEffect( () => {
   getTodos();
 }, []);
   
-const todoHandler = (event) => {
-  setaddTodo(event.target.value)
-}
-const addtoDocument= async () => {
-  settodo(addTodo)
-  await addDoc(docRef, {todo:addTodo})
+
+
+const inputHandler = (event) => {
+  setnewTodo(event.target.value)
 }
 
 
-const updateTodo = async (id, todo) => {
+const addTodo= async () => {
+  await addDoc(docRef, {todo:newTodo})
+}
+
+
+const updateTodo = async (id) => {
     const document =  doc(db,"todos", id);
-const newTodo= {todo:"update"}
-  await updateDoc(document,newTodo)
+const updatedtodo= {todo:"update"}
+  await updateDoc(document,updatedtodo)
 }
+
 
 const deleteTodo= async(id) => {
   const document =  doc(db,"todos", id);
@@ -43,9 +47,10 @@ const deleteTodo= async(id) => {
 
   return (
     <div className="App">
-      hello
-      <input placeholder='Enter Todo' type="text" onChange={todoHandler}/>
-    <button onClick={addtoDocument}>Add</button>
+    
+      <input placeholder='Enter Todo' type="text" onChange={inputHandler}/>
+    <button onClick={addTodo}>Add</button>
+
       {todo.map((todos) => (
          <div>{todos.todo}
          {todos.completed}
