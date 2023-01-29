@@ -31,6 +31,7 @@ function Todo () {
       
       const addTodo= async () => {
         await addDoc(docRef, {todo:newTodo})
+        setnewTodo('')
       }
       
       
@@ -51,7 +52,7 @@ function Todo () {
 
     return (
         <div>
-        <input placeholder='Enter Todo' type="text" onChange={inputHandler}/>
+        <input value={newTodo}placeholder='Enter Todo' type="text" onChange={inputHandler}/>
         <button onClick={addTodo}>Add</button>
     
           {todo.map((todos) => (

@@ -1,5 +1,5 @@
 import './App.css';
-import {db} from './FirebaseConfig'
+import {auth} from './FirebaseConfig'
 
 import {
   createBrowserRouter,
@@ -11,12 +11,6 @@ import SignIn from './SignIn';
 import Todo from './Todo';
 
 function App() {
-
-
-
-
-
-
 
 
   return (
