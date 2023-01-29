@@ -1,23 +1,26 @@
-import logo from './logo.svg';
 import './App.css';
-
+import {db} from './FirebaseConfig'
+import {collection, addDoc,getDocs } from "firebase/firestore"; 
+import {useState} from 'react'
 function App() {
+const [todo, settodo] = useState([])
+
+ 
+const getHanlder = async () => {
+  const docRef =collection(db, "todos");
+  const docSnap = await getDocs(docRef);
+ settodo(docSnap.docs.map((doc) => ({...doc.data()}) )) 
+ console.log(todo)
+}
+  
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      hello
+      {todo.map((todos) => (
+         <div>{todos.todo}</div>
+      ))}
+      <button onClick={getHanlder}>Click me</button>
     </div>
   );
 }
