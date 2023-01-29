@@ -17,6 +17,7 @@ import Todo from './Todo';
 const routeDefinitions=createRoutesFromElements(
   <Route>
     <Route path="/" element={<SignIn/>}/>
+    <Route path="/home" element={<Todo/>}/>
   </Route>
 )
 
