@@ -1,6 +1,6 @@
 import './App.css';
 import {db} from './FirebaseConfig'
-import {collection, addDoc,getDocs,updateDoc,doc } from "firebase/firestore"; 
+import {collection, addDoc,getDocs,updateDoc,doc,deleteDoc } from "firebase/firestore"; 
 import {useState, useEffect} from 'react'
 function App() {
 
@@ -31,11 +31,15 @@ const addtoDocument= async () => {
 
 
 const updateTodo = async (id, todo) => {
-    const document = await doc(db,"todos", id);
+    const document =  doc(db,"todos", id);
 const newTodo= {todo:"update"}
   await updateDoc(document,newTodo)
 }
 
+const deleteTodo= async(id) => {
+  const document =  doc(db,"todos", id);
+  await deleteDoc(document)
+}
 
   return (
     <div className="App">
@@ -49,6 +53,10 @@ const newTodo= {todo:"update"}
                 updateTodo(todos.id, todos.todo);
               }}
          >Update</button>
+            <button onClick={() => {
+                deleteTodo(todos.id);
+              }}
+         >Delete</button>
          </div>
       ))}
     </div>
