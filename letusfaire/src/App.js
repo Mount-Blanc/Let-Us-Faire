@@ -19,7 +19,7 @@ useEffect( () => {
   };
 
   getTodos();
-}, []);
+}, [docRef  ]);
   
 
 
