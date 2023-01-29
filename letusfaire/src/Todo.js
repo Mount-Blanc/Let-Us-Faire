@@ -2,6 +2,7 @@ import {useState, useEffect} from 'react'
 import {collection, addDoc,getDocs,updateDoc,doc,deleteDoc } from "firebase/firestore"; 
 import {db} from './FirebaseConfig'
       import { getAuth, onAuthStateChanged } from "firebase/auth";
+      import Button from 'react-bootstrap/Button';
 
 
 function Todo () {
@@ -68,19 +69,19 @@ function Todo () {
     return (
         <div>
         <input value={newTodo}placeholder='Enter Todo' type="text" onChange={inputHandler}/>
-        <button onClick={addTodo}>Add</button>
+        <Button variant="primary" onClick={addTodo}>Add</Button >
     
           {todo.map((todos) => (
              <div>{todos.todo}
              {todos.completed}
-             <button onClick={() => {
+             <Button variant="primary" onClick={() => {
                     updateTodo(todos.id, todos.todo);
                   }}
-             >Update</button>
-                <button onClick={() => {
+             >Update</Button>
+                <Button variant="primary" onClick={() => {
                     deleteTodo(todos.id);
                   }}
-             >Delete</button>
+             >Delete</Button>
              </div>
           ))}
           </div>
