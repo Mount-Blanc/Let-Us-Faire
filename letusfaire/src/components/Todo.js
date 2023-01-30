@@ -1,7 +1,6 @@
 import {useState, useEffect} from 'react'
 import {collection, addDoc,getDocs,updateDoc,doc,deleteDoc } from "firebase/firestore"; 
 import {db} from '../FirebaseConfig'
-      import { getAuth, onAuthStateChanged } from "firebase/auth";
       import Button from 'react-bootstrap/Button';
 
       import './Todo.css'
@@ -9,6 +8,11 @@ import {db} from '../FirebaseConfig'
 function Todo () {
     const [todo, settodo] = useState([])
     const [newTodo, setnewTodo] = useState('')
+        const [isUpdating, setisUpdating] = useState(
+          {updating:false,
+          id:''}
+        )
+
     
     const docRef =collection(db, "todos");
 
@@ -40,13 +44,25 @@ function Todo () {
       }
       
       
-      const updateTodo = async (id) => {
-          const document =  doc(db,"todos", id);
-      const updatedtodo= {todo:"update"}
+      const updateTodo = async () => {
+                setisUpdating(false)
+          const document =  doc(db,"todos", isUpdating.id);
+      const updatedtodo= {todo:newTodo}
         await updateDoc(document,updatedtodo)
+        setnewTodo('')
       }
       
+      const inputUpdate =  (id) => {  
+        setisUpdating(
+          {
+            updating:true,
+            id:id
+          }
+        )
+        ;}
       
+
+
       const deleteTodo= async(id) => {
         const document =  doc(db,"todos", id);
         await deleteDoc(document)
@@ -68,18 +84,25 @@ function Todo () {
       //   }
       // );
 
-
+      const blurHandler = () => {
+        setisUpdating({updating:false})
+        console.log(isUpdating.updating)
+      }
     return (
         <div>
-        <input value={newTodo}placeholder='Enter Todo' type="text" onChange={inputHandler}/>
-        <Button variant="primary" onClick={addTodo}>Add</Button >
+          {isUpdating.updating 
+          ? (<><input value ={newTodo}  onBlur={blurHandler} onChange={inputHandler} placeholder='Update Todo'/>  
+           <Button variant="warning"  onClick={updateTodo}>Update</Button >
+          </>) 
+          : (<><input value={newTodo}placeholder='Enter Todo' type="text" onChange={inputHandler}/>
+        <Button variant="primary" onClick={addTodo}>Add</Button ></>
+
+)}
     
           {todo.map((todos,id) => (
              <div key={id}>{todos.todo}
              {todos.completed}
-             <Button variant="warning" onClick={() => {
-                    updateTodo(todos.id, todos.todo);
-                  }}
+             <Button variant="warning" onClick={()=> {inputUpdate(todos.id)}}
              >Update</Button>
                 <Button variant="danger" onClick={() => {
                     deleteTodo(todos.id);
