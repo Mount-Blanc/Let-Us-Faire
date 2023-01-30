@@ -33,8 +33,10 @@ function Todo () {
       
       
       const addTodo= async () => {
+        if (newTodo != ''){
         await addDoc(docRef, {todo:newTodo})
         setnewTodo('')
+        }
       }
       
       
