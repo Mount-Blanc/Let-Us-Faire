@@ -79,7 +79,7 @@ function Todo () {
                     updateTodo(todos.id, todos.todo);
                   }}
              >Update</Button>
-                <Button variant="primary" onClick={() => {
+                <Button variant="danger" onClick={() => {
                     deleteTodo(todos.id);
                   }}
              >Delete</Button>
