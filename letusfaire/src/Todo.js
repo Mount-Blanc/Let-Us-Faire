@@ -75,7 +75,7 @@ function Todo () {
           {todo.map((todos) => (
              <div>{todos.todo}
              {todos.completed}
-             <Button variant="primary" onClick={() => {
+             <Button variant="warning" onClick={() => {
                     updateTodo(todos.id, todos.todo);
                   }}
              >Update</Button>
