@@ -1,6 +1,6 @@
 import {useState, useEffect} from 'react'
 import {collection, addDoc,getDocs,updateDoc,doc,deleteDoc } from "firebase/firestore"; 
-import {db} from './FirebaseConfig'
+import {db} from '../FirebaseConfig'
       import { getAuth, onAuthStateChanged } from "firebase/auth";
       import Button from 'react-bootstrap/Button';
 

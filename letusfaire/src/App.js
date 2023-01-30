@@ -8,8 +8,8 @@ import {
 } from "react-router-dom";
 
 
-import SignIn from './SignIn';
-import Todo from './Todo';
+import SignIn from './components/SignIn';
+import Todo from './components/Todo';
 
 
 
