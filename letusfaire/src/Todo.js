@@ -4,6 +4,7 @@ import {db} from './FirebaseConfig'
       import { getAuth, onAuthStateChanged } from "firebase/auth";
       import Button from 'react-bootstrap/Button';
 
+      import './Todo.css'
 
 function Todo () {
     const [todo, settodo] = useState([])

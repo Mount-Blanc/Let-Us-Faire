@@ -1,8 +1,8 @@
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
-
+import Card from 'react-bootstrap/Card'
+import './SignIn.css'
 
 import {auth} from './FirebaseConfig'
 import { getAuth, signInAnonymously } from "firebase/auth";
@@ -27,11 +27,13 @@ const signinHandler = () => {
       });}
 
     return (
-         <Card  border="primary" >
-        {/* <Card.Header>Let-Us-Faire</Card.Header> */}
-            <Button variant="primary" onClick={signinHandler} >Guest Sign in</Button>
+         <Card bg='white' >
+        <Card.Header as='h3'>Let-Us-Faire</Card.Header> 
+        <Card.Text>
+            A simple and reliable way to keep track of tasks
+          </Card.Text>
+            <Button variant="primary" onClick={signinHandler} >Guest Sign in</Button> 
          </Card>
-
     
 
     )
