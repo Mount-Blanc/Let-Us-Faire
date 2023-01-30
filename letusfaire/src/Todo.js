@@ -72,8 +72,8 @@ function Todo () {
         <input value={newTodo}placeholder='Enter Todo' type="text" onChange={inputHandler}/>
         <Button variant="primary" onClick={addTodo}>Add</Button >
     
-          {todo.map((todos) => (
-             <div>{todos.todo}
+          {todo.map((todos,id) => (
+             <div key={id}>{todos.todo}
              {todos.completed}
              <Button variant="warning" onClick={() => {
                     updateTodo(todos.id, todos.todo);
