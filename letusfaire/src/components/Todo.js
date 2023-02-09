@@ -48,13 +48,16 @@ function Todo () {
       
       
       const updateTodo = async () => {
-        console.log(updatednewTodo)
+
+        if (updatednewTodo != ''){
+
 
           const document =  doc(db,"todos", isUpdating.id);
       const updatedtodo= {todo:updatednewTodo}
         await updateDoc(document,updatedtodo)
         setisUpdating({updating:false,id:""})
         setupdatednewTodo('')
+        }
       }
       
       const inputUpdate =  (id) => {  
