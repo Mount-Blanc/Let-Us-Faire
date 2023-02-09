@@ -85,6 +85,8 @@ function Todo () {
            {isUpdating.updating ?
            (<><input value ={updatednewTodo} onChange={updateinputHandler} placeholder='Update Todo'/>  
            <Button variant="warning"  onClick={updateTodo}>Update</Button >
+           <Button variant="danger"  onClick={() => setisUpdating({updating:false,id:""})}>Cancel</Button >
+
           </>)
          :  (<><input value={newTodo}placeholder='Enter Todo' type="text" onChange={inputHandler}/>
         <Button variant="primary"  onClick={addTodo}>Add</Button ></>)}
