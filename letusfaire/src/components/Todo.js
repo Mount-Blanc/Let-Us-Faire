@@ -8,14 +8,14 @@ import {db} from '../FirebaseConfig'
 function Todo () {
     const [todo, settodo] = useState([])
     const [newTodo, setnewTodo] = useState('')
+    const [updatednewTodo, setupdatednewTodo] = useState('')
+
         const [isUpdating, setisUpdating] = useState(
           {updating:false,
           id:''}
         )
 
-    
     const docRef =collection(db, "todos");
-
     useEffect( () => {
     
       const getTodos =  async () => {
@@ -24,10 +24,10 @@ function Todo () {
     
      settodo(docSnap.docs.map((doc) => ({...doc.data(),id:doc.id}) )) 
       };
-    
+
       getTodos();
     }, [docRef  ]);
-      
+
     
     
 
@@ -35,6 +35,9 @@ function Todo () {
         setnewTodo(event.target.value)
       }
       
+      const updateinputHandler = (event) => {
+        setupdatednewTodo(event.target.value)
+      }
       
       const addTodo= async () => {
         if (newTodo != ''){
@@ -45,11 +48,13 @@ function Todo () {
       
       
       const updateTodo = async () => {
-                setisUpdating(false)
+        console.log(updatednewTodo)
+
           const document =  doc(db,"todos", isUpdating.id);
-      const updatedtodo= {todo:newTodo}
+      const updatedtodo= {todo:updatednewTodo}
         await updateDoc(document,updatedtodo)
-        setnewTodo('')
+        setisUpdating({updating:false,id:""})
+        setupdatednewTodo('')
       }
       
       const inputUpdate =  (id) => {  
@@ -68,36 +73,19 @@ function Todo () {
         await deleteDoc(document)
       }
 
-
-      // const auth = getAuth();
-      // onAuthStateChanged(auth, (user) => {
-      //   if (user) {
-      //     // User is signed in, see docs for a list of available properties
-      //     // https://firebase.google.com/docs/reference/js/firebase.User
-      //     const uid = user.uid;
-      //     // ...
-      //   } else {
-      //     // User is signed out
-      //     // ...
-
-      //     };
-      //   }
-      // );
-
-      const blurHandler = () => {
-        setisUpdating({updating:false})
-        console.log(isUpdating.updating)
-      }
+      //  const blurHandler = () => {
+      //    setisUpdating({updating:false,id:''})
+      //   console.log(isUpdating.updating)
+      // }
     return (
         <div>
-          {isUpdating.updating 
-          ? (<><input value ={newTodo}  onBlur={blurHandler} onChange={inputHandler} placeholder='Update Todo'/>  
+           {isUpdating.updating ?
+           (<><input value ={updatednewTodo} onChange={updateinputHandler} placeholder='Update Todo'/>  
            <Button variant="warning"  onClick={updateTodo}>Update</Button >
-          </>) 
-          : (<><input value={newTodo}placeholder='Enter Todo' type="text" onChange={inputHandler}/>
-        <Button variant="primary" onClick={addTodo}>Add</Button ></>
+          </>)
+         :  (<><input value={newTodo}placeholder='Enter Todo' type="text" onChange={inputHandler}/>
+        <Button variant="primary"  onClick={addTodo}>Add</Button ></>)}
 
-)}
     
           {todo.map((todos,id) => (
              <div key={id}>{todos.todo}
@@ -109,8 +97,8 @@ function Todo () {
                   }}
              >Delete</Button>
              </div>
-          ))}
-          </div>
+          ))} 
+          </div> 
     )
 }
 export default Todo
