@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/Let-Us-Faire/static/css/main.cbb39a1a.css",
+    "main.js": "/Let-Us-Faire/static/js/main.56d98b19.js",
+    "static/js/787.2a014b78.chunk.js": "/Let-Us-Faire/static/js/787.2a014b78.chunk.js",
+    "static/media/glyphicons-halflings-regular.svg": "/Let-Us-Faire/static/media/glyphicons-halflings-regular.060b2710bdbbe3dfe48b.svg",
+    "static/media/glyphicons-halflings-regular.ttf": "/Let-Us-Faire/static/media/glyphicons-halflings-regular.4692b9ec53fd5972caa2.ttf",
+    "static/media/glyphicons-halflings-regular.woff": "/Let-Us-Faire/static/media/glyphicons-halflings-regular.82b1212e45a2bc35dd73.woff",
+    "static/media/glyphicons-halflings-regular.eot": "/Let-Us-Faire/static/media/glyphicons-halflings-regular.5be1347c682810f199c7.eot",
+    "static/media/glyphicons-halflings-regular.woff2": "/Let-Us-Faire/static/media/glyphicons-halflings-regular.be810be3a3e14c682a25.woff2",
+    "index.html": "/Let-Us-Faire/index.html",
+    "main.cbb39a1a.css.map": "/Let-Us-Faire/static/css/main.cbb39a1a.css.map",
+    "main.56d98b19.js.map": "/Let-Us-Faire/static/js/main.56d98b19.js.map",
+    "787.2a014b78.chunk.js.map": "/Let-Us-Faire/static/js/787.2a014b78.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.cbb39a1a.css",
+    "static/js/main.56d98b19.js"
+  ]
+}
