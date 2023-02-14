@@ -1,6 +1,6 @@
 import {useState, useEffect} from 'react'
 import {collection, addDoc,getDocs,updateDoc,doc,deleteDoc } from "firebase/firestore"; 
-import {db} from '../FirebaseConfig.js'
+import {db} from '../FirebaseConfig'
       import Button from 'react-bootstrap/Button';
 
       import './Todo.css'

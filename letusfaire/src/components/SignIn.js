@@ -4,7 +4,7 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card'
 import './SignIn.css'
 
-import {auth} from '../FirebaseConfig.js'
+import {auth} from '../FirebaseConfig'
 import { getAuth, signInAnonymously } from "firebase/auth";
 import {useNavigate} from 'react-router-dom'
 
