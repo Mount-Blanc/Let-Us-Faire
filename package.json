@@ -1,0 +1,22 @@
+{
+  "name": "let-us-faire",
+  "version": "1.0.0",
+  "description": "A simple todo list app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "cd letusfaire/server && npm install && node server.js",
+    "build": "cd letusfaire && npm run build",
+    "install": "cd letusfaire && npm install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mount-Blanc/Let-Us-Faire.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mount-Blanc/Let-Us-Faire/issues"
+  },
+  "homepage": "https://github.com/Mount-Blanc/Let-Us-Faire#readme"
+}
