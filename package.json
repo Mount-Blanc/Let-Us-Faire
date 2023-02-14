@@ -1,6 +1,9 @@
 {
   "name": "let-us-faire",
   "version": "1.0.0",
+  "engines": {
+    "node": "v18.12.1"
+  },
   "description": "A simple todo list app",
   "main": "index.js",
   "scripts": {
