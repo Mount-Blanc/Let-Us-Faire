@@ -10,7 +10,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "cd letusfaire/server && npm install && node server.js",
     "build": "cd letusfaire && npm run build",
-    "install": "cd letusfaire && npm install"
+    "install": "cd letusfaire && npm install" 
   },
   "repository": {
     "type": "git",
